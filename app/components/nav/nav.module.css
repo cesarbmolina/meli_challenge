@@ -1,0 +1,24 @@
+.navbar {
+  background-color: var(--background-color-navbar);
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 0;
+  overflow: visibles;
+}
+
+.contentSearch {
+  width: 100%;
+}
+
+.brand {
+  display: flex;
+}
+
+.logo {
+  display: block;
+  cursor: pointer;
+}
