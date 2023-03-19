@@ -52,7 +52,7 @@
 }
 
 .searchingResult {
-  display: block;
+  display: none;
   background-color: #fff;
   min-height: 100px;
   top: 40px;
@@ -67,10 +67,13 @@
   border-bottom-right-radius: 2px;
   border-bottom-left-radius: 2px;
   border-radius: 4px;
+  max-height: 190px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .searchingResultActive {
-  display: none;
+  display: block;
 }
 
 .searchingResult li {

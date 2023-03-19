@@ -7,6 +7,12 @@
     Arial, sans-serif;
   --background-color-body: #eeeeee;
   --background-color-navbar: #ffe600;
+  --max-width-container: 1280px;
+  /* Colors */
+  --color-withe: #fff;
+  --color-green: #00a650;
+  --color-text: #333;
+  --color-text-2: #666;
 }
 
 * {
@@ -14,6 +20,7 @@
   padding: 0;
   margin: 0;
   font-family: var(--font);
+  color: var(--color-text);
 }
 
 html,
