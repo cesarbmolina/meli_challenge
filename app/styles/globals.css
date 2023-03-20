@@ -9,10 +9,11 @@
   --background-color-navbar: #ffe600;
   --max-width-container: 1280px;
   /* Colors */
-  --color-withe: #fff;
+  --color-white: #fff;
   --color-green: #00a650;
   --color-text: #333;
   --color-text-2: #666;
+  --color-blue: #3483fa;
 }
 
 * {

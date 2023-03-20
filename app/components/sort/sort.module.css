@@ -1,0 +1,95 @@
+.contentSort {
+  display: flex;
+  align-items: center;
+  z-index: 1050;
+  position: relative;
+
+  justify-content: end;
+}
+.textSort {
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.7;
+  margin-right: 6px;
+  white-space: nowrap;
+}
+.textSelected {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  line-height: 1.7;
+  z-index: 1050;
+}
+.contentSelected {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.textSelected:hover {
+  color: var(--color-blue);
+}
+.contentSelected svg {
+  color: var(--color-blue);
+  fill: var(--color-blue);
+  width: 15px;
+}
+.contentSelect {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: -4px;
+  top: 24px;
+}
+.contentSelectList {
+  background-color: var(--color-white);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 12%);
+  border-radius: 8px;
+  min-width: 135px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.contentSelectItem {
+  height: 41px;
+  padding: 13px 0 13px 16px;
+  color: var(--color-text);
+  display: flex;
+  font-size: 12px;
+  position: relative;
+  border-bottom: 1px solid #d8d8d8;
+}
+.contentSelectItem:hover:after {
+  background: #9cc4db;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  width: 5px;
+}
+.contentSelectItemActive {
+  color: var(--color-blue);
+  font-weight: 600;
+  cursor: default;
+}
+.contentSelectItemActive:after {
+  background: var(--color-blue);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  width: 5px;
+}
+.contentSelectItemActive:hover:after {
+  background: var(--color-blue);
+}
+.textContentSelected {
+  display: flex;
+  align-items: center;
+}
