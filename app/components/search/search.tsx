@@ -10,7 +10,7 @@ import { useGlobalContext } from "../../utils/globalContext";
 const Search = () => {
 	const contentSearch = useRef<HTMLDivElement>(null)
 
-	const { setSearchResults, setTextSearch, textSearch } = useGlobalContext();
+	const { setSearchResults, setTextSearch, setAvailableFilters, textSearch } = useGlobalContext();
 
 	const url = process.env.NEXT_PUBLIC_API_URL_PRODUCT
 	const { data, isLoading } = useFetch(`${url}${textSearch}&limit=10`);
@@ -26,8 +26,11 @@ const Search = () => {
 
 	useEffect(() => {
 		let result: any = data?.results;
+		let available_filters: any = data?.available_filters
+		let range = available_filters?.filter((e: any) => e.id === "price")[0]?.values
+		setAvailableFilters(range)
 		setSearchResults(result)
-	}, [data, setSearchResults, textSearch])
+	}, [data, setAvailableFilters, setSearchResults, textSearch])
 
 	return (
 		<div className={localStyles.contentSearch} ref={contentSearch}>

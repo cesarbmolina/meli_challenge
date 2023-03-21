@@ -5,7 +5,7 @@ import localStyle from "./result.module.css"
 
 import Image from 'next/image';
 import Sort from '../sort/sort';
-import Filter from '../filter/filte';
+import Filter from '../filter/filter';
 
 const Result = () => {
 

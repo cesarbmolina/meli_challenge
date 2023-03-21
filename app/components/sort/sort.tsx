@@ -72,9 +72,6 @@ const Sort = () => {
                   {item === "price_asc" && "Mayor precio"}
                 </li>
               ))}
-              {/* <li className={`${localStyle.contentSelectItem} ${true ? localStyle.contentSelectItemActive : null}`} onClick={() => setSortValue("relevance")}>Más relevantes</li>
-              <li className={localStyle.contentSelectItem} onClick={() => setSortValue("price_desc")}>Menor precio</li>
-              <li className={localStyle.contentSelectItem} onClick={() => setSortValue("price_asc")}>Mayor precio</li> */}
             </ul>
           </div>}
         </div>
