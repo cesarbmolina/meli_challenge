@@ -93,7 +93,7 @@
   width: 200px;
   margin-left: auto;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
 }
 .showIconFreeShepping {
   background-color: var(--color-green);

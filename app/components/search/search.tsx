@@ -4,8 +4,8 @@ import { GetServerSideProps } from 'next';
 import localStyles from "./search.module.css"
 import Image from "next/image";
 /* Util */
-import { useFetch, Product } from "@/utils/useFetch";
-import { useGlobalContext } from "@/utils/globalContext";
+import { useFetch, Product } from "../../utils/useFetch";
+import { useGlobalContext } from "../../utils/globalContext";
 
 const Search = () => {
 	const contentSearch = useRef<HTMLDivElement>(null)

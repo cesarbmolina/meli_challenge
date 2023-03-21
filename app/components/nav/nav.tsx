@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 /* styles */
-import styles from '@/styles/Home.module.css'
+import styles from '../../styles/Home.module.css'
 import localStyles from "./nav.module.css"
 import Search from "../search/search";
 import Link from "next/link";

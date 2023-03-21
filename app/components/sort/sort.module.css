@@ -3,8 +3,7 @@
   align-items: center;
   z-index: 1050;
   position: relative;
-
-  justify-content: end;
+  justify-content: flex-end;
 }
 .textSort {
   color: #333;

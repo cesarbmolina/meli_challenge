@@ -5,7 +5,7 @@ describe('Home', () => {
   it('renders a heading', async () => {
     await render(<Home />)
 
-    const checker = screen.getByText(/Get started by editing/i);
+    const checker = screen.getByText(/Ordenar por/i);
     expect(checker).toBeInTheDocument();
   })
 })

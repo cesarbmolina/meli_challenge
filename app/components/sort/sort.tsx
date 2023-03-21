@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import localStyle from "./sort.module.css"
-import { useFetch } from "@/utils/useFetch";
-import { useGlobalContext } from "@/utils/globalContext";
+import { useFetch } from "../../utils/useFetch";
+import { useGlobalContext } from "../../utils/globalContext";
 
 const Sort = () => {
   const sortRef = useRef<HTMLDivElement>(null)

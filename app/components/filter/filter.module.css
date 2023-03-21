@@ -1,0 +1,92 @@
+.filterTitle {
+  color: var(--color-text);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 32px 0 10px;
+}
+.contentFilter ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.filterItem {
+  color: var(--color-text);
+  display: block;
+  font-size: 14px;
+  letter-spacing: 0.15px;
+  line-height: 0.89;
+  margin: 0 0 13px;
+  text-decoration: none;
+  font-weight: 300;
+  cursor: pointer;
+}
+.filterItemQuantity {
+  color: #8c8c8c;
+  font-weight: 300;
+}
+.contentPriceFilter {
+  display: flex;
+  padding-top: 6px;
+}
+.actionLink {
+  background-color: #3483fa;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  margin-left: 8px;
+  outline: none;
+  padding-top: 0;
+  position: relative;
+  text-align: center;
+  width: 24px;
+}
+.priceFilterColumn {
+  display: flex;
+}
+.priceFilterColumn:first-child:after {
+  color: #999;
+  content: "—";
+  float: left;
+  font-size: 12px;
+  line-height: 2px;
+  margin: 0 5px;
+  padding: 10px 0;
+}
+.priceFilterValue {
+  border: 1px solid #999;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  font-size: 13px;
+  height: 25px;
+  padding: 0 4px;
+  text-align: left;
+  width: 67px;
+}
+.actionLink::after {
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  content: "";
+  display: inline-block;
+  height: 8px;
+  position: absolute;
+  right: 9px;
+  top: 7px;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  width: 8px;
+}
+.actionLink:disabled {
+  background-color: #bfbfbf;
+}
+
+.priceFilterValue::-webkit-outer-spin-button,
+.priceFilterValue::-webkit-inner-spin-button {
+  appearance: textfield;
+  appearance: none;
+  margin: 0;
+}

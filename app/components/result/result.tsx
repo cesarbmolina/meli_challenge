@@ -1,22 +1,20 @@
-import { useGlobalContext } from '@/utils/globalContext';
+import { useGlobalContext } from '../../utils/globalContext';
 import { useEffect, useState } from 'react';
 
 import localStyle from "./result.module.css"
-import styles from '@/styles/Home.module.css'
 
 import Image from 'next/image';
 import Sort from '../sort/sort';
+import Filter from '../filter/filte';
 
 const Result = () => {
 
 	const { searchResults, textSearch } = useGlobalContext();
 
-	useEffect(() => { }, [searchResults, textSearch])
-
 	return (
 		<div className={`${localStyle.contentResult}`}>
 			<div className={localStyle.aside}>
-				{false && <div>Loading...</div>}
+				<Filter />
 			</div>
 			<div className={localStyle.contentResultList}>
 				<div>
