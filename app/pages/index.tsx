@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Roboto } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
+import styles from '../styles/Home.module.css'
 import { GlobalContextProvider, useGlobalContext } from '../utils/globalContext'
 import Result from '../components/result/result'
 import Nav from '../components/nav/nav'
 import { useEffect, useState } from 'react'
-import { useFetch } from '@/utils/useFetch'
+import { useFetch } from '../utils/useFetch'
 
 const font = Roboto({ subsets: ['latin'], weight: ['300', '400', '700'] })
 
