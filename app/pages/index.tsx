@@ -5,12 +5,28 @@ import styles from '@/styles/Home.module.css'
 import { GlobalContextProvider, useGlobalContext } from '../utils/globalContext'
 import Result from '../components/result/result'
 import Nav from '../components/nav/nav'
+import { useEffect, useState } from 'react'
+import { useFetch } from '@/utils/useFetch'
 
 const font = Roboto({ subsets: ['latin'], weight: ['300', '400', '700'] })
 
 export default function Home() {
 
-  const { searchResults } = useGlobalContext();
+  const [textValueSeach, setTextValueSearch] = useState();
+  const [priceRange, setPriceRange] = useState("");
+
+  const { searchResults, setSearchResults, textSearch, sort, setAvailableFilters, filter } = useGlobalContext();
+
+  const url = process.env.NEXT_PUBLIC_API_URL_PRODUCT
+  const { data } = useFetch(`${url}${textSearch}&sort=${sort}&price=${filter}&limit=10`);
+  useEffect(() => {
+    if (data) {
+      const newData = data?.results
+      setSearchResults(newData);
+      const filter: any = data?.available_filters.find((e: any) => e.id === "price")
+      filter && setAvailableFilters(filter?.values)
+    }
+  }, [data, textSearch, setSearchResults, setAvailableFilters])
 
   return (
     <>
@@ -23,12 +39,11 @@ export default function Home() {
         <link rel="preload" href="https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" data-head-react="true" />
         <link rel="preload" href="https://http2.mlstatic.com/ui/webfonts/v3.0.0/proxima-nova/proximanova-semibold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" data-head-react="true" />
       </Head>
-      <GlobalContextProvider>
-        <main className={styles.main}>
-          <Nav />
-          <Result />
-        </main>
-      </GlobalContextProvider>
+
+      <main className={styles.main}>
+        <Nav onChange={(e: any) => setTextValueSearch(e)} />
+        <Result data={searchResults} />
+      </main>
     </>
   )
 }

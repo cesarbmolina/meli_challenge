@@ -7,13 +7,15 @@ import Image from "next/image";
 import { useFetch, Product } from "../../utils/useFetch";
 import { useGlobalContext } from "../../utils/globalContext";
 
-const Search = () => {
+interface SeachValueI {
+	searchValue?: String;
+	onSearchValue: React.Dispatch<React.SetStateAction<String>>;
+}
+
+const Search = ({ searchValue, onSearchValue }: SeachValueI) => {
 	const contentSearch = useRef<HTMLDivElement>(null)
 
 	const { setSearchResults, setTextSearch, setAvailableFilters, textSearch } = useGlobalContext();
-
-	const url = process.env.NEXT_PUBLIC_API_URL_PRODUCT
-	const { data, isLoading } = useFetch(`${url}${textSearch}&limit=10`);
 
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const value = event.target.value;
@@ -25,12 +27,8 @@ const Search = () => {
 	};
 
 	useEffect(() => {
-		let result: any = data?.results;
-		let available_filters: any = data?.available_filters
-		let range = available_filters?.filter((e: any) => e.id === "price")[0]?.values
-		setAvailableFilters(range)
-		setSearchResults(result)
-	}, [data, setAvailableFilters, setSearchResults, textSearch])
+		onSearchValue(textSearch)
+	}, [onSearchValue, setAvailableFilters, setSearchResults, textSearch])
 
 	return (
 		<div className={localStyles.contentSearch} ref={contentSearch}>

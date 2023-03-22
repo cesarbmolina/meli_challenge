@@ -6,7 +6,11 @@ import localStyles from "./nav.module.css"
 import Search from "../search/search";
 import Link from "next/link";
 
-const Nav = () => {
+export interface onChangeI {
+	onChange: (e: string) => void
+}
+
+const Nav = ({ onChange }: onChangeI) => {
 
 	return (<>
 		<div className={localStyles.navbar}>
@@ -25,7 +29,7 @@ const Nav = () => {
 					</Link>
 				</div>
 				<div className={localStyles.contentSearch}>
-					<Search />
+					<Search onSearchValue={(e: any) => onChange(e)} />
 				</div>
 			</div>
 		</div>

@@ -9,48 +9,36 @@ const Filter = () => {
 	const [minValue, setMinValue] = useState("")
 	const [maxValue, setMaxValue] = useState("")
 
-	const { textSearch, setSearchResults, availableFilters } = useGlobalContext()
+	const { textSearch, setSearchResults, availableFilters, setFilter } = useGlobalContext()
 
-	const price = () => {
+	const price = useCallback(() => {
 		if (minValue.length > 0) {
 			if (maxValue.length > 0) {
-				return `${minValue}-${maxValue}`
+				return setFilter(`${minValue}-${maxValue}`)
 			}
-			return `${minValue}-*`
+			return setFilter(`${minValue}-*`)
 		}
-		return `*-${maxValue}`
-	}
+		return setFilter(`*-${maxValue}`)
+	}, [maxValue, minValue, setFilter])
 
 	const handleClickRange = (value: string, index: number) => {
 		if (index === 0) {
-			return value
+			return setFilter(value)
 		}
 		if (index === 1) {
-			return value
+			return setFilter(value)
 		}
 		if (index === 2) {
-			return value
+			return setFilter(value)
 		}
 	}
-
-	/* const url = process.env.NEXT_PUBLIC_API_URL_PRODUCT
-	const { data, isLoading } = useFetch(`${url}${textSearch}&price=${price()}&limit=10`); */
-
-	/* 	useEffect(() => {
-			console.log(price());
-			if (data) {
-				const newData = data?.results
-				setSearchResults(newData);
-			}
-    
-		}, [data, price, setSearchResults]) */
 
 	return (
 		<>
 			<div className={localStyle.contentFilter}>
 				<h4 className={localStyle.filterTitle}>Precio</h4>
 				<ol>
-					{availableFilters?.map((item, key) => (
+					{availableFilters && availableFilters?.map((item, key) => (
 						<li
 							key={key}
 							className={localStyle.filterItem}

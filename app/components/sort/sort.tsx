@@ -7,7 +7,6 @@ const Sort = () => {
   const sortRef = useRef<HTMLDivElement>(null)
   const [clickedInside, setClickedInside] = useState(false)
   const [listSort, setListSort] = useState(['relevance', 'price_desc', 'price_asc']);
-  const [sortValue, setSortValue] = useState("relevance")
 
   const handleClickOutside = useCallback((e: any) => {
     if (sortRef.current && !sortRef.current.contains(e.target as Node)) {
@@ -26,20 +25,15 @@ const Sort = () => {
     setClickedInside(true);
   };
 
-  const { textSearch, setSearchResults } = useGlobalContext()
+  const { setSort, sort } = useGlobalContext()
 
-  const url = process.env.NEXT_PUBLIC_API_URL_PRODUCT
-  const { data, isLoading } = useFetch(`${url}${textSearch}&sort=${sortValue}&limit=10`);
   useEffect(() => {
-    if (data) {
-      const newData = data?.results
-      setSearchResults(newData);
-    }
-  }, [sortValue, data, textSearch, setSearchResults])
+    setSort("relevance")
+  }, [setSort])
 
   const handleSortClick = (value: string) => {
     const selectedString = value;
-    setSortValue(value)
+    setSort(value)
     handleClickOutside(() => null)
     const index = listSort.indexOf(selectedString);
     if (index !== -1) {
@@ -55,9 +49,9 @@ const Sort = () => {
         <div className={localStyle.contentSelected}>
           <div className={localStyle.textContentSelected} onClick={handleClickInside}>
             <span className={localStyle.textSelected}>
-              {sortValue === "relevance" && "Más relevantes"}
-              {sortValue === "price_desc" && "Menor precio"}
-              {sortValue === "price_asc" && "Mayor precio"}
+              {sort === "relevance" && "Más relevantes"}
+              {sort === "price_desc" && "Mayor precio"}
+              {sort === "price_asc" && "Menor precio"}
             </span>
             <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path fillOpacity="1" d="M6 7.057L9.352 3.705 10.148 4.5 6 8.648 1.852 4.5 2.648 3.705z"></path></svg>
           </div>
@@ -68,8 +62,8 @@ const Sort = () => {
                   className={`${localStyle.contentSelectItem} ${key === 0 ? localStyle.contentSelectItemActive : null}`}
                   onClick={() => handleSortClick(item)}>
                   {item === "relevance" && "Más relevantes"}
-                  {item === "price_desc" && "Menor precio"}
-                  {item === "price_asc" && "Mayor precio"}
+                  {item === "price_desc" && "Mayor precio"}
+                  {item === "price_asc" && "Menor precio"}
                 </li>
               ))}
             </ul>
