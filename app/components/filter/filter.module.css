@@ -1,9 +1,13 @@
+.contentFilter {
+  margin-top: 52px;
+}
+
 .filterTitle {
   color: var(--color-text);
   font-size: 16px;
   font-weight: 600;
   line-height: 1.25;
-  margin: 32px 0 10px;
+  margin: 0 0 10px;
 }
 .contentFilter ol {
   list-style-type: none;
@@ -20,6 +24,7 @@
   text-decoration: none;
   font-weight: 300;
   cursor: pointer;
+  white-space: nowrap;
 }
 .filterItemQuantity {
   color: #8c8c8c;

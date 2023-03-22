@@ -4,6 +4,7 @@
   z-index: 1050;
   position: relative;
   justify-content: flex-end;
+  margin-left: auto;
 }
 .textSort {
   color: #333;

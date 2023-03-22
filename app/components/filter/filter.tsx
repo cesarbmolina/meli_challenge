@@ -42,7 +42,7 @@ const Filter = () => {
 						<li
 							key={key}
 							className={localStyle.filterItem}
-							onClick={(e: any) => handleClickRange(item.id, key)}>
+							onClick={(e) => handleClickRange(item.id, key)}>
 							{item?.name} <span className={localStyle.filterItemQuantity}>({item?.results})</span>
 						</li>))}
 				</ol>

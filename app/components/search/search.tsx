@@ -15,14 +15,17 @@ interface SeachValueI {
 const Search = ({ searchValue, onSearchValue }: SeachValueI) => {
 	const contentSearch = useRef<HTMLDivElement>(null)
 
+	const [value, setValue] = useState("")
+
+
 	const { setSearchResults, setTextSearch, setAvailableFilters, textSearch } = useGlobalContext();
 
 	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const value = event.target.value;
 		if (value.length > 2) {
-			setTextSearch(value)
+			setValue(value)
 		} else {
-			setTextSearch("")
+			setValue("")
 		}
 	};
 
@@ -30,12 +33,21 @@ const Search = ({ searchValue, onSearchValue }: SeachValueI) => {
 		onSearchValue(textSearch)
 	}, [onSearchValue, setAvailableFilters, setSearchResults, textSearch])
 
+
+	const handleSearch = () => {
+		setTextSearch(value)
+	}
+
 	return (
 		<div className={localStyles.contentSearch} ref={contentSearch}>
 			<input
 				onInput={handleInputChange}
 				className={localStyles.input} type="text" autoComplete="off" name="" id="input-search" placeholder="Buscar productos, marcas y más…" />
-			<button className={localStyles.btnSearch} aria-label="Buscar">
+			<button
+				onClick={handleSearch}
+				className={localStyles.btnSearch}
+				aria-label="Buscar"
+			>
 				<Image
 					className={localStyles.searchIcon}
 					src="/search_icon.svg"

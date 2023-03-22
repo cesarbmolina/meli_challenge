@@ -27,10 +27,6 @@ const Sort = () => {
 
   const { setSort, sort } = useGlobalContext()
 
-  useEffect(() => {
-    setSort("relevance")
-  }, [setSort])
-
   const handleSortClick = (value: string) => {
     const selectedString = value;
     setSort(value)
@@ -49,7 +45,7 @@ const Sort = () => {
         <div className={localStyle.contentSelected}>
           <div className={localStyle.textContentSelected} onClick={handleClickInside}>
             <span className={localStyle.textSelected}>
-              {sort === "relevance" && "Más relevantes"}
+              {(sort === "relevance" || sort === "") && "Más relevantes"}
               {sort === "price_desc" && "Mayor precio"}
               {sort === "price_asc" && "Menor precio"}
             </span>

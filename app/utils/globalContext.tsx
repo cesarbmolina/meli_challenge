@@ -2,7 +2,19 @@ import { createContext, useContext, useState } from 'react';
 import { Product } from './useFetch';
 
 export interface SearchResult {
-	Product: Product
+	thumbnail: string;
+	title: string;
+	price: string | any;
+	installments: {
+		quantity: string;
+		amount: Number;
+	};
+	shipping: {
+		free_shipping: Boolean;
+	};
+	address: {
+		state_name: string;
+	}
 }
 
 export interface FilterResult {

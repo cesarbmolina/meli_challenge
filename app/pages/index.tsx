@@ -18,7 +18,8 @@ export default function Home() {
   const { searchResults, setSearchResults, textSearch, sort, setAvailableFilters, filter } = useGlobalContext();
 
   const url = process.env.NEXT_PUBLIC_API_URL_PRODUCT
-  const { data } = useFetch(`${url}${textSearch}&sort=${sort}&price=${filter}&limit=10`);
+  const { data, isLoading } = useFetch(`${url}${textSearch}&sort=${sort}&price=${filter}&limit=10`);
+
   useEffect(() => {
     if (data) {
       const newData = data?.results
@@ -42,7 +43,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <Nav onChange={(e: any) => setTextValueSearch(e)} />
-        <Result data={searchResults} />
+        <Result data={searchResults} loading={isLoading} />
       </main>
     </>
   )

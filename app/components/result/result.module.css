@@ -5,6 +5,14 @@
   max-width: var(--max-width-container);
   margin-top: 32px;
   height: calc(100vh - 80px);
+  display: flex;
+  gap: 24px;
+}
+
+.contentSort {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
 }
 
 .contentResultList {
@@ -90,7 +98,8 @@
   background-color: var(--color-green);
 }
 .city {
-  width: 200px;
+  max-width: 200px;
+  width: 100%;
   margin-left: auto;
   display: flex;
   justify-content: flex-start;
@@ -113,6 +122,18 @@
     width: 100%;
     margin: 0 20px;
   }
+  .contentResult {
+    width: 100%;
+    padding: 0 20px;
+  }
+  .aside {
+    display: none;
+  }
+  .textsResult {
+    margin: 0;
+  }
+}
+@media (max-width: 1280px) {
   .contentResult {
     width: 100%;
     padding: 0 20px;

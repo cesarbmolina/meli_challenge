@@ -7,24 +7,41 @@ import Image from 'next/image';
 import Sort from '../sort/sort';
 import Filter from '../filter/filter';
 
-export interface searchResultsI {
-	data: any
+export interface dataResultI {
+	thumbnail: string;
+	title: string;
+	price: string | any;
+	installments: {
+		quantity: string;
+		amount: Number;
+	};
+	shipping: {
+		free_shipping: Boolean;
+	};
+	address: {
+		state_name: string;
+	}
 }
 
-const Result = ({ data }: searchResultsI) => {
+export interface searchResultsI {
+	data: dataResultI[];
+	loading?: Boolean;
+}
+
+const Result = ({ data, loading }: searchResultsI) => {
 
 	return (
 		<div className={`${localStyle.contentResult}`}>
-			<div className={localStyle.aside}>
+			{data && data?.length > 0 && <div className={localStyle.aside}>
 				<Filter />
-			</div>
+			</div>}
 			<div className={localStyle.contentResultList}>
-				<div>
+				<div className={localStyle.contentSort}>
 					<Sort />
 				</div>
 				{data && data?.length > 0 && (
 					<ol className={localStyle.listResult}>
-						{data.map((item: any, key: number) => (
+						{data.map((item: dataResultI, key: number) => (
 							<li className={localStyle.itemResult} key={key}>
 								<div className={localStyle.imgItem}>
 									<Image className={localStyle.imageItem} src={item?.thumbnail} width={200} height={200} alt={item?.title} />

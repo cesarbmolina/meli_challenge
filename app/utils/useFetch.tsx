@@ -19,11 +19,6 @@ export interface Data {
 export interface Product {
 	id: string;
 	title: string;
-	price: {
-		currency: string;
-		amount: string;
-		decimals: number;
-	};
 	installments: {
 		quantity: number;
 		amount: string;
@@ -35,6 +30,11 @@ export interface Product {
 	picture: string;
 	condition: string;
 	free_shipping: boolean;
+	thumbnail: string;
+	price: string | any;
+	shipping: {
+		free_shipping: Boolean;
+	};
 }
 
 export function useFetch(url: string) {
